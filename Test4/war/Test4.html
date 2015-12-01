@@ -1,0 +1,75 @@
+<!doctype html>
+<!-- The DOCTYPE declaration above will set the     -->
+<!-- browser's rendering engine into                -->
+<!-- "Standards Mode". Replacing this declaration   -->
+<!-- with a "Quirks Mode" doctype is not supported. -->
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<link type="text/css" rel="stylesheet" href="bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="Test4.css">
+
+    <title>Intellisense using Tries</title>
+	<script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="test4/test4.nocache.js"></script>
+    
+    <script>
+function showHint(str) {
+	document.getElementById("outercontainer").innerHTML = "";
+    if (str.length == 0) { 
+        document.getElementById("outercontainer").innerHTML = "";
+        return;
+    } else {
+    	$.post("NewFile.jsp",
+    		    { sg: str},
+    		    function(data){
+    		    	document.getElementById("outercontainer").innerHTML = data;
+    		    	data = document.getElementById("outercontainer").innerText;
+    		    	document.getElementById("outercontainer").innerHTML = "";
+					var arry = data.split("_");
+					var len = arry.length;
+					for(var i = 0; i< arry.length-1; i++)
+					{
+						if(i == 0)
+							arry[i] = arry[i].substring(0,arry[i].length-1);
+						else
+							arry[i] = arry[i].substring(1,arry[i].length-1);
+						var text = document.getElementById("outercontainer").innerHTML;
+						document.getElementById("outercontainer").innerHTML = text + arry[i] + "</br>";
+					}
+					});}}
+</script>
+    
+  </head>
+
+  <!--                                           -->
+  <!-- The body can have arbitrary html, or      -->
+  <!-- you can leave the body empty if you want  -->
+  <!-- to create a completely dynamic UI.        -->
+  <!--                                           -->
+  <body>
+    <noscript>
+      <div style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
+        Your web browser must have JavaScript enabled
+        in order for this application to display correctly.
+      </div>
+    </noscript>
+	<h4>Implementation of Intellisense using tries</h4>
+	<div class = "box">
+	<div class = "middle"><b>Enter a country's name: </b></div>
+	<form id = "form" class = "middle">
+	<input type="text" class = "form-control" placeholder="Enter text" id ="textbox" onkeyup="showHint(this.value)" autocomplete="off" aria-describedby="basic-addon2">
+	<div id = "outercontainer">
+	<div id="container">
+	</div>
+	</div>
+	</form>
+	</div>
+	<div class = "footer"><b>
+This application is developed by Abdul Azeem. Code can be found <a href= "https://github.com/abazeem/Intellisense">here</a> 
+</b>
+</div>
+	
+  </body>
+</html>

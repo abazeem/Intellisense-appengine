@@ -1,0 +1,44 @@
+/** Add css rules here for your application. */
+
+
+/** Example rules used by the template application (remove for your app) */
+
+.box
+{
+	padding : 10px 0px;
+	margin : 0 auto;
+	width : 900px;
+}
+
+#container
+{
+	width: 2%;
+}
+
+#outercontainer
+{
+	width: 100%;
+	border: 2px solid lightgrey;
+	padding : 0px 12px!important;
+}
+#textbox
+{
+	width:100%!important;
+}
+
+.middle
+{
+	width : 40%;
+	margin : 0px auto;
+}
+
+h4
+{
+	text-align:center;
+}
+
+.footer
+{
+		position: fixed;
+		bottom: 0px;
+}

@@ -6,4 +6,6 @@ This is a basic JAVA web application which implements intellisense using the dat
 
 The jsp file along with html and css files are placed in the war folder. The JAVA files are placed in the src/demo folder.
 
+Here is the URL : https://intellisense-121.appspot.com
+
 ALL THE BEST :)
